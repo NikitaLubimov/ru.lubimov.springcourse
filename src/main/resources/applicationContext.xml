@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="testBean"
+          class="org.example.nail.TestBean">
+        <constructor-arg value="Nikita"/>
+    </bean>
+
+    <bean id="classicalMusic"
+          class="org.example.nail.ClassicalMusic">
+    </bean>
+
+    <bean id="rockMusic"
+          class="org.example.nail.RockMusic">
+    </bean>
+
+    <bean id="jazzMusic"
+          class="org.example.nail.JazzMusic">
+    </bean>
+
+    <bean id="musicPlayer"
+          class="org.example.nail.MusicPlayer">
+        <constructor-arg ref="musicList"/>
+    </bean>
+
+    <bean id="musicList" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="classicalMusic"/>
+                <ref bean="jazzMusic"/>
+                <ref bean="rockMusic"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+</beans>
